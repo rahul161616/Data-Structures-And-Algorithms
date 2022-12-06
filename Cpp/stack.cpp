@@ -72,7 +72,7 @@ public:
     }
     int topElement()
     {
-        return arr[top];
+        return arr[5];
     }
     void print()
     {
@@ -83,7 +83,7 @@ public:
         else
         {
             cout << "The elements in the Stack are:" << endl;
-            for (int i = 0; i <= top; i++)
+            for (int i = 0; i <= 5; i++)
             {
                 cout << arr[i] << endl;
             }
@@ -109,8 +109,8 @@ int main()
 {
     int n, values, choice;
     int peek_the_element;
-    cout << "Enter the size of the Stack:" << endl;
-    cin >> n;
+     cout << "Enter the size of the Stack:" << endl;
+     cin >> n;
     Stack s(n);
 
     do
