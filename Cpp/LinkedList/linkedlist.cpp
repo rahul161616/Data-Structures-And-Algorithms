@@ -62,17 +62,14 @@ public:
     void insert_at_desired_position(int position_specified_by_user, int data_sent)
     {
         Node *n = new Node();
-        Node *temp;
-        Node *prev;
-        temp = head;
-        for (int i = 1; i <= (position_specified_by_user - 1); i++)
+        Node *temp = head;
+        n->data = data_sent;
+        for (int i = 1; i < position_specified_by_user - 1; i++)
         {
-            prev = temp;
             temp = temp->next;
         }
-        prev->next = n;
-        n->data = data_sent;
-        n->next = temp;
+        n->next = temp->next;
+        temp->next = n;
     }
     void delete_at_last()
     {
@@ -91,29 +88,25 @@ public:
     }
     void delete_at_desired_location(int position_specified_by_user)
     {
+        Node *temp = head;
         if (head == NULL)
         {
             cout << "Linked List Is Empty!" << endl;
         }
         else if (position_specified_by_user == 1)
         {
-            Node *temp = head;
             temp = temp->next;
             head = temp;
         }
         else
         {
-            Node *prev = head; // prev (previous points to where head is pointing)
-            Node *current = head;
-            while (position_specified_by_user != 1)
+            int i = 1;
+            while (i < position_specified_by_user - 1)
             {
-                prev = current;
-                current = current->next;
-                position_specified_by_user--;
+                temp = temp->next;
+                i++;
             }
-            prev->next = current->next;
-            delete current;
-            current = NULL;
+            temp->next = temp->next->next;
         }
     }
     void delete_at_the_beginnig()
@@ -136,6 +129,7 @@ public:
                 cout << temp->data << "-->";
                 temp = temp->next;
             }
+            cout << "NULL";
         }
     }
     void search(int data_tb_searched)

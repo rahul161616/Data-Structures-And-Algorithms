@@ -23,7 +23,7 @@ public:
         {
             cout << "Queue Full" << endl;
         }
-        else if (front == -1)
+        else if (front == -1 && rear == -1)
         {
             front = 0;
             rear = 0;
@@ -36,7 +36,7 @@ public:
         }
         else
         {
-            rear++;
+            rear = (rear + 1) % n;
             queue[rear] = data_to_be_enqueued;
         }
     }
@@ -53,7 +53,8 @@ public:
         }
         else if (front == n - 1)
         {
-            front = 0;
+
+            front = (front + 1) % n;
         }
         else
         {
@@ -62,7 +63,7 @@ public:
     }
     bool isFull()
     {
-        if ((front == 0) && (rear == n - 1) || (rear = (front) % (n - 1)))
+        if ((rear + 1) % n == front)
         {
             return 1;
         }
@@ -89,14 +90,14 @@ public:
         {
             for (int i = front; i <= rear; i++)
             {
-                cout << queue[i];
+                cout << queue[i] << " ";
             }
         }
         else
         {
             for (int i = front; i < rear; i++)
             {
-                cout << queue[i];
+                cout << queue[i] << " ";
             }
         }
     }
@@ -114,4 +115,6 @@ int main()
     cout << qe.isFull() << endl;
     qe.display();
     qe.dequeue();
+    cout << endl;
+    qe.display();
 }

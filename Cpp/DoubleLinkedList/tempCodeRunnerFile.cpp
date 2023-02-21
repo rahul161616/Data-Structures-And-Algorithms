@@ -138,11 +138,11 @@ public:
         }
         else
         {
-            Node *temp;
-            temp = tail;
-            tail->prev->next = NULL;
+            // Node *temp;
+            // temp = tail;
+            // tail->prev->next = NULL;
+            delete tail;
             tail = tail->prev; // updating the tail to the position before it
-            delete temp;
         }
     }
     void delete_At(int index_At)
