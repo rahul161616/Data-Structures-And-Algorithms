@@ -23,6 +23,6 @@ int main()
     char a, b, c;
     cout << "Enter the number of discs:" << endl;
     cin >> n;
-    cout << "Tower of Hanoi of " << n << "discs" << endl;
+    cout << "Tower of Hanoi of " << n << "discs:" << endl;
     tower_of_hanoi(n, 'a', 'b', 'c');
 }

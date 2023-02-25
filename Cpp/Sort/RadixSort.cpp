@@ -46,13 +46,6 @@ void radix_sort(int arr[], int n)
     }
 }
 
-void display(int arr[], int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
-}
 int main()
 {
     int n;
@@ -64,6 +57,9 @@ int main()
         cin >> arr[i];
     }
     radix_sort(arr, n);
-    display(arr, n);
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
     delete[] arr;
 }
